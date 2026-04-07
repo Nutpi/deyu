@@ -1,0 +1,19 @@
+{
+  "name": "德语学习 - Deutsch Lernen",
+  "short_name": "德语学习",
+  "description": "德语词汇学习与记忆工具，支持CEFR A1-C2级别",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education"],
+  "lang": "zh-CN"
+}

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "mcp__zread__get_repo_structure",
+      "mcp__zread__search_doc",
+      "mcp__web-reader__webReader",
+      "Bash(npx:*)",
+      "Bash(npm install:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(for word:*)",
+      "Bash(do echo:*)",
+      "Bash(grep -n \"german: \"\"$word\"\"\" src/data/*.ts)",
+      "Bash(done)",
+      "Bash(md5 /Users/weiguangxieyu/Trae/deyu/src/app/words/page.tsx)",
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
