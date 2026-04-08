@@ -32,6 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       (_event: string, session: Session | null) => {
         setUser(session?.user ?? null);
         setCloudMode(!!session?.user);
+        setLoading(false);
       }
     );
 
