@@ -12,7 +12,7 @@ import {
   updateSessionStats,
   saveDailyRecord,
   getDailyRecord,
-} from "@/lib/db";
+} from "@/lib/db-unified";
 
 const levels: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
@@ -53,29 +53,11 @@ export default function LearnPage() {
     loadWords();
   }, [loadWords]);
 
-  const handleGrade = async (grade: Grade) => {
+  const handleGrade = (grade: Grade) => {
     const word = unlearnedWords[currentIndex];
     if (!word) return;
 
-    try {
-      const state = await initCardState(word.id);
-      const updated = calculateSM2(state, grade);
-      await saveCardState(updated);
-
-      const today = new Date().toISOString().slice(0, 10);
-      await updateSessionStats(today, grade >= 3);
-
-      const existing = await getDailyRecord(today);
-      await saveDailyRecord({
-        date: today,
-        newWords: (existing?.newWords ?? 0) + 1,
-        reviewWords: existing?.reviewWords ?? 0,
-        correctRate: 0,
-      });
-    } catch {
-      // DB error, continue
-    }
-
+    // 立即翻到下一张，不等网络
     const nextIndex = currentIndex + 1;
     const newCount = sessionCount + 1;
     setSessionCount(newCount);
@@ -85,6 +67,28 @@ export default function LearnPage() {
     } else {
       setCurrentIndex(nextIndex);
     }
+
+    // 后台保存数据
+    (async () => {
+      try {
+        const state = await initCardState(word.id);
+        const updated = calculateSM2(state, grade);
+        await Promise.all([
+          saveCardState(updated),
+          updateSessionStats(new Date().toISOString().slice(0, 10), grade >= 3),
+          getDailyRecord(new Date().toISOString().slice(0, 10)).then((existing) =>
+            saveDailyRecord({
+              date: new Date().toISOString().slice(0, 10),
+              newWords: (existing?.newWords ?? 0) + 1,
+              reviewWords: existing?.reviewWords ?? 0,
+              correctRate: 0,
+            })
+          ),
+        ]);
+      } catch {
+        // DB error, already moved to next card
+      }
+    })();
   };
 
   if (loading) {

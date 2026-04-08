@@ -5,7 +5,7 @@ import { vocabulary } from "@/data/vocabulary";
 import { CEFRLevel, WordType, Vocabulary, CardState } from "@/lib/types";
 import { useSpeech } from "@/lib/useSpeech";
 import { generateWordCard } from "@/components/ShareCard";
-import { getAllCardStates, getStreak } from "@/lib/db";
+import { getAllCardStates, getStreak } from "@/lib/db-unified";
 import { isDueForReview } from "@/lib/sm2";
 
 const levels: (CEFRLevel | "all")[] = ["all", "A1", "A2", "B1", "B2", "C1", "C2"];

@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import StreakBoard from "@/components/StreakBoard";
 import ShareCard from "@/components/ShareCard";
-import { getStreak, getAllCardStates, getDailyRecord } from "@/lib/db";
+import { getStreak, getAllCardStates, getDailyRecord } from "@/lib/db-unified";
+import { useAuth } from "@/lib/auth";
 import { isDueForReview } from "@/lib/sm2";
 import { vocabulary } from "@/data/vocabulary";
 
 export default function HomePage() {
+  const { user, signOut } = useAuth();
   const [streak, setStreak] = useState(0);
   const [todayNew, setTodayNew] = useState(0);
   const [todayReview, setTodayReview] = useState(0);
@@ -49,6 +51,14 @@ export default function HomePage() {
           德语学习
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1">Deutsch Lernen</p>
+        {user ? (
+          <div className="mt-2 flex items-center justify-center gap-2">
+            <span className="text-xs text-gray-400 dark:text-gray-500">{user.email}</span>
+            <button onClick={() => signOut()} className="text-xs text-gray-400 hover:text-red-500 transition-colors">退出</button>
+          </div>
+        ) : (
+          <Link href="/login" className="mt-2 inline-block text-xs text-blue-500 hover:text-blue-600">登录同步学习记录</Link>
+        )}
       </div>
 
       {/* Streak 和进度 */}

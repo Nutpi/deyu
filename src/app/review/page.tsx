@@ -11,7 +11,7 @@ import {
   updateSessionStats,
   saveDailyRecord,
   getDailyRecord,
-} from "@/lib/db";
+} from "@/lib/db-unified";
 
 export default function ReviewPage() {
   const [dueWords, setDueWords] = useState<
@@ -52,27 +52,9 @@ export default function ReviewPage() {
     loadDueWords();
   }, [loadDueWords]);
 
-  const handleGrade = async (grade: Grade) => {
+  const handleGrade = (grade: Grade) => {
     const item = dueWords[currentIndex];
     if (!item) return;
-
-    try {
-      const updated = calculateSM2(item.state, grade);
-      await saveCardState(updated);
-
-      const today = new Date().toISOString().slice(0, 10);
-      await updateSessionStats(today, grade >= 3);
-
-      const existing = await getDailyRecord(today);
-      await saveDailyRecord({
-        date: today,
-        newWords: existing?.newWords ?? 0,
-        reviewWords: (existing?.reviewWords ?? 0) + 1,
-        correctRate: 0,
-      });
-    } catch {
-      // DB error
-    }
 
     const newReviewed = reviewed + 1;
     const newCorrect = correct + (grade >= 3 ? 1 : 0);
@@ -85,6 +67,28 @@ export default function ReviewPage() {
     } else {
       setCurrentIndex(nextIndex);
     }
+
+    // 后台保存数据
+    (async () => {
+      try {
+        const updated = calculateSM2(item.state, grade);
+        const today = new Date().toISOString().slice(0, 10);
+        await Promise.all([
+          saveCardState(updated),
+          updateSessionStats(today, grade >= 3),
+          getDailyRecord(today).then((existing) =>
+            saveDailyRecord({
+              date: today,
+              newWords: existing?.newWords ?? 0,
+              reviewWords: (existing?.reviewWords ?? 0) + 1,
+              correctRate: 0,
+            })
+          ),
+        ]);
+      } catch {
+        // DB error, already moved to next card
+      }
+    })();
   };
 
   if (loading) {
