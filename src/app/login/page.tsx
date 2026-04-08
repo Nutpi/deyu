@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth";
 
 export default function LoginPage() {
   const { signIn, signUp } = useAuth();
+  const router = useRouter();
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +32,8 @@ export default function LoginPage() {
         const { error: err } = await signIn(email, password);
         if (err) {
           setError(err);
+        } else {
+          router.push("/learn");
         }
       }
     } finally {
