@@ -18,6 +18,8 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  // 跳过非同源请求（如 Supabase API），避免缓存外部资源导致请求挂起
+  if (!event.request.url.startsWith(self.location.origin)) return;
   event.respondWith(
     fetch(event.request)
       .then((response) => {
