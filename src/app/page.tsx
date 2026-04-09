@@ -10,7 +10,7 @@ import { isDueForReview } from "@/lib/sm2";
 import { vocabulary } from "@/data/vocabulary";
 
 export default function HomePage() {
-  const { user, signOut } = useAuth();
+  const { user, loading: authLoading, signOut } = useAuth();
   const [streak, setStreak] = useState(0);
   const [todayNew, setTodayNew] = useState(0);
   const [todayReview, setTodayReview] = useState(0);
@@ -18,6 +18,8 @@ export default function HomePage() {
   const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
+    if (authLoading) return;
+
     async function load() {
       try {
         const today = new Date().toISOString().slice(0, 10);
@@ -39,7 +41,7 @@ export default function HomePage() {
       }
     }
     load();
-  }, []);
+  }, [authLoading, user]);
 
   const unlearnedCount = vocabulary.length - totalLearned;
 
