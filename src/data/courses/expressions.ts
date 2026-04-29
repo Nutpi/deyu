@@ -556,5 +556,294 @@ export const expressionsLessons: CourseLesson[] = [
         explanation: "sich erkälten = to catch a cold。Ich habe mich erkältet = I have caught a cold."
       }
     ]
+  },
+  {
+    id: "expr-09",
+    category: "expressions",
+    titleZh: "酒店入住",
+    titleDe: "Im Hotel",
+    titleEn: "At the Hotel",
+    description: "学习在德国酒店入住、退房时常用的德语表达",
+    level: "A1",
+    order: 9,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "table",
+        heading: "酒店常用语",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语"],
+        tableRows: [
+          ["Ich habe eine Reservierung.", "我有预订。", "I have a reservation."],
+          ["Ich hätte gern ein Einzelzimmer/Doppelzimmer.", "我想要单人间/双人间。", "I'd like a single/double room."],
+          ["Für wie viele Nächte?", "住几晚？", "For how many nights?"],
+          ["Was kostet das Zimmer pro Nacht?", "每晚多少钱？", "How much is the room per night?"],
+          ["Gibt es Frühstück?", "有早餐吗？", "Is breakfast included?"],
+          ["Kann ich mit Karte zahlen?", "可以刷卡吗？", "Can I pay by card?"],
+          ["Ich möchte auschecken.", "我想退房。", "I'd like to check out."],
+          ["Können Sie mich um 7 Uhr wecken?", "您能7点叫醒我吗？", "Could you wake me at 7?"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "酒店相关词汇",
+        content: "das Hotel — 酒店\ndas Einzelzimmer — 单人间\ndas Doppelzimmer — 双人间\nder Schlüssel — 钥匙\ndie Rezeption — 前台\ndas Frühstück — 早餐\nder Aufzug — 电梯\ndie Nacht — 夜晚（几晚）"
+      },
+      {
+        type: "tip",
+        heading: "文化提示",
+        content: "德国酒店通常包含早餐（Frühstück）。早餐时间一般是 6:30-10:00。退房时间通常是中午12点前（11:00或12:00）。德国酒店不像美国那样需要额外给小费。"
+      }
+    ],
+    exercises: [
+      {
+        id: "expr-09-e1",
+        type: "multiple-choice",
+        questionZh: "\"Ich hätte gern ein Doppelzimmer.\" 的意思是？",
+        options: ["我想要单人间", "我想要双人间", "我想要退房", "我有预订"],
+        correctAnswer: "我想要双人间",
+        explanation: "das Doppelzimmer = double room（双人间）。das Einzelzimmer = single room（单人间）。"
+      },
+      {
+        id: "expr-09-e2",
+        type: "multiple-choice",
+        questionZh: "问\"每晚多少钱\"应该说？",
+        options: ["Was kostet das Hotel?", "Was kostet das Zimmer pro Nacht?", "Wie teuer ist das Frühstück?", "Was kostet der Schlüssel?"],
+        correctAnswer: "Was kostet das Zimmer pro Nacht?",
+        explanation: "pro Nacht = per night（每晚）。Was kostet das Zimmer pro Nacht? = How much is the room per night?"
+      },
+      {
+        id: "expr-09-e3",
+        type: "multiple-choice",
+        questionZh: "\"die Rezeption\" 是指酒店的哪个部分？",
+        options: ["餐厅", "前台", "电梯", "房间"],
+        correctAnswer: "前台",
+        explanation: "die Rezeption = reception/front desk（前台）。入住和退房都在前台办理。"
+      }
+    ]
+  },
+  {
+    id: "expr-10",
+    category: "expressions",
+    titleZh: "天气与季节",
+    titleDe: "Wetter und Jahreszeiten",
+    titleEn: "Weather and Seasons",
+    description: "学习如何用德语描述天气和讨论季节",
+    level: "A1",
+    order: 10,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "table",
+        heading: "天气表达",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语"],
+        tableRows: [
+          ["Wie ist das Wetter?", "天气怎么样？", "How is the weather?"],
+          ["Es ist warm/kalt/heiß.", "天气暖/冷/热。", "It is warm/cold/hot."],
+          ["Die Sonne scheint.", "出太阳了。", "The sun is shining."],
+          ["Es regnet.", "下雨了。", "It is raining."],
+          ["Es schneit.", "下雪了。", "It is snowing."],
+          ["Der Wind weht.", "刮风了。", "The wind is blowing."],
+          ["Es ist bewölkt.", "多云。", "It is cloudy."],
+          ["Es gibt ein Gewitter.", "有雷暴。", "There is a thunderstorm."],
+          ["Es ist neblig.", "有雾。", "It is foggy."],
+        ]
+      },
+      {
+        type: "table",
+        heading: "四季",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语", "月份"],
+        tableRows: [
+          ["der Frühling", "春天", "spring", "März—Mai"],
+          ["der Sommer", "夏天", "summer", "Juni—August"],
+          ["der Herbst", "秋天", "autumn", "September—November"],
+          ["der Winter", "冬天", "winter", "Dezember—Februar"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "温度表达",
+        content: "德国使用摄氏度（Celsius）：\n\nEs sind 25 Grad. (气温25度。)\nEs sind minus 5 Grad. (零下5度。)\nWie viel Grad sind es? (多少度？)\n\n参考：0°C = 32°F, 20°C = 68°F, 30°C = 86°F"
+      },
+      {
+        type: "tip",
+        heading: "实用提示",
+        content: "谈论天气是德国人最常用的小话题（Smalltalk），和英语文化一样。可以说：\"Schönes Wetter heute, oder?\" (今天天气不错，对吧？) 来开启对话。"
+      }
+    ],
+    exercises: [
+      {
+        id: "expr-10-e1",
+        type: "multiple-choice",
+        questionZh: "\"Es regnet.\" 的意思是？",
+        options: ["下雪了", "出太阳了", "下雨了", "刮风了"],
+        correctAnswer: "下雨了",
+        explanation: "regnen = to rain。Es regnet. = It is raining."
+      },
+      {
+        id: "expr-10-e2",
+        type: "multiple-choice",
+        questionZh: "德国的冬天（der Winter）包括哪几个月？",
+        options: ["September—November", "Dezember—Februar", "März—Mai", "Juni—August"],
+        correctAnswer: "Dezember—Februar",
+        explanation: "der Winter (冬天) = Dezember, Januar, Februar。注意：冬天跨年！"
+      },
+      {
+        id: "expr-10-e3",
+        type: "multiple-choice",
+        questionZh: "德国使用什么温度单位？",
+        options: ["华氏度 (Fahrenheit)", "摄氏度 (Celsius)", "开尔文 (Kelvin)", "两种都用"],
+        correctAnswer: "摄氏度 (Celsius)",
+        explanation: "德国（和全世界除美国以外）使用摄氏度。Es sind 25 Grad. = 25°C = 77°F。"
+      }
+    ]
+  },
+  {
+    id: "expr-11",
+    category: "expressions",
+    titleZh: "业余爱好与休闲",
+    titleDe: "Hobbys und Freizeit",
+    titleEn: "Hobbies and Free Time",
+    description: "学习如何用德语谈论自己的兴趣爱好和休闲活动",
+    level: "A1",
+    order: 11,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "table",
+        heading: "谈论爱好",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语"],
+        tableRows: [
+          ["Was sind deine Hobbys?", "你的爱好是什么？", "What are your hobbies?"],
+          ["Was machst du gern in deiner Freizeit?", "你空闲时喜欢做什么？", "What do you like to do in your free time?"],
+          ["Ich spiele gern Fußball.", "我喜欢踢足球。", "I like playing soccer."],
+          ["Ich lese gern Bücher.", "我喜欢读书。", "I like reading books."],
+          ["Ich höre gern Musik.", "我喜欢听音乐。", "I like listening to music."],
+          ["Ich koche gern.", "我喜欢做饭。", "I like cooking."],
+          ["Ich reise gern.", "我喜欢旅行。", "I like traveling."],
+          ["Ich fotografiere gern.", "我喜欢拍照。", "I like taking photos."],
+        ]
+      },
+      {
+        type: "table",
+        heading: "常见爱好词汇",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语"],
+        tableRows: [
+          ["der Sport", "运动", "sports"],
+          ["das Spielen", "玩游戏", "playing (games)"],
+          ["das Schwimmen", "游泳", "swimming"],
+          ["das Radfahren", "骑自行车", "cycling"],
+          ["das Wandern", "徒步", "hiking"],
+          ["das Tanzen", "跳舞", "dancing"],
+          ["das Malen", "画画", "painting"],
+          ["das Singen", "唱歌", "singing"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "gern 的用法",
+        content: "gern 是副词，表示\"乐意地、喜欢\"，放在动词后面：\n\nIch trinke gern Kaffee. (我喜欢喝咖啡。)\nIch spiele gern Tennis. (我喜欢打网球。)\n\n比较级：lieber（更喜欢）\nIch trinke lieber Tee. (我更喜欢喝茶。)\n\n最高级：am liebsten（最喜欢）\nIch trinke am liebsten Wasser. (我最喜欢喝水。)"
+      },
+      {
+        type: "tip",
+        heading: "文化提示",
+        content: "德国人非常重视工作与生活的平衡（Work-Life-Balance）。周日和假期不工作，用于休闲、运动、与家人朋友相处。户外活动在德国很受欢迎，尤其是徒步（Wandern）和骑自行车（Radfahren）。"
+      }
+    ],
+    exercises: [
+      {
+        id: "expr-11-e1",
+        type: "multiple-choice",
+        questionZh: "表达\"我喜欢踢足球\"应该说？",
+        options: ["Ich mag Fußball spielen.", "Ich spiele gern Fußball.", "Ich will Fußball.", "Ich habe Fußball gern."],
+        correctAnswer: "Ich spiele gern Fußball.",
+        explanation: "用 动词 + gern 表达喜欢做某事：Ich spiele gern Fußball. (I like playing soccer.)"
+      },
+      {
+        id: "expr-11-e2",
+        type: "multiple-choice",
+        questionZh: "\"lieber\" 是 \"gern\" 的什么级？",
+        options: ["原级", "比较级（更喜欢）", "最高级（最喜欢）", "否定形式"],
+        correctAnswer: "比较级（更喜欢）",
+        explanation: "gern → lieber → am liebsten。lieben = 喜欢，lieber = 更喜欢，am liebsten = 最喜欢。"
+      },
+      {
+        id: "expr-11-e3",
+        type: "multiple-choice",
+        questionZh: "\"Was machst du gern in deiner Freizeit?\" 的意思是？",
+        options: ["你周末做什么？", "你的工作是什么？", "你空闲时喜欢做什么？", "你有空吗？"],
+        correctAnswer: "你空闲时喜欢做什么？",
+        explanation: "die Freizeit = free time（空闲时间）。Was machst du gern in deiner Freizeit? = What do you like to do in your free time?"
+      }
+    ]
+  },
+  {
+    id: "expr-12",
+    category: "expressions",
+    titleZh: "打电话",
+    titleDe: "Telefonieren",
+    titleEn: "Making Phone Calls",
+    description: "学习用德语打电话时的常用表达和礼仪",
+    level: "A2",
+    order: 12,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "table",
+        heading: "打电话常用语",
+        content: "",
+        tableHeaders: ["德语", "中文", "英语"],
+        tableRows: [
+          ["Hier spricht...", "我是...", "This is... speaking"],
+          ["Kann ich bitte mit... sprechen?", "请找...接电话好吗？", "Can I speak to... please?"],
+          ["Einen Moment, bitte.", "请稍等。", "One moment, please."],
+          ["Er/Sie ist nicht da.", "他/她不在。", "He/She is not here."],
+          ["Möchten Sie eine Nachricht hinterlassen?", "您要留个口信吗？", "Would you like to leave a message?"],
+          ["Ich rufe später noch mal an.", "我稍后再打来。", "I'll call back later."],
+          ["Könnten Sie das bitte wiederholen?", "您能再说一遍吗？", "Could you repeat that please?"],
+          ["Danke, auf Wiederhören!", "谢谢，再见！(电话)", "Thank you, goodbye!"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "德国电话礼仪",
+        content: "德国人接电话时习惯先报自己的姓名：\n\n\"Schmidt, guten Tag!\" (施密特，您好！)\n而不是像英语说 \"Hello?\"\n\n打电话结束时说 \"Auf Wiederhören\"（再见，电话用语），而不是 \"Auf Wiedersehen\"（再见，面对面用语）。\n\nHören = 听，Wiederhören = 再次听到\nSehen = 看，Wiedersehen = 再次看到"
+      },
+      {
+        type: "tip",
+        heading: "实用提示",
+        content: "在德国打电话给公司或机构，通常用 Sie（正式）。如果是打给朋友的手机，可以用 du。记住：电话里看不到肢体语言和表情，所以说话要更清晰、更慢一些。"
+      }
+    ],
+    exercises: [
+      {
+        id: "expr-12-e1",
+        type: "multiple-choice",
+        questionZh: "德国人接电话时通常先做什么？",
+        options: ["说 Hallo", "报自己的姓名", "问对方是谁", "说 Guten Tag"],
+        correctAnswer: "报自己的姓名",
+        explanation: "德国人接电话习惯先报姓名：\"Müller, guten Tag!\" 而不是简单说 \"Hallo?\""
+      },
+      {
+        id: "expr-12-e2",
+        type: "multiple-choice",
+        questionZh: "电话中说\"再见\"应该说？",
+        options: ["Auf Wiedersehen!", "Tschüss!", "Auf Wiederhören!", "Bis später!"],
+        correctAnswer: "Auf Wiederhören!",
+        explanation: "电话中说 Auf Wiederhören!（再听到=再见）。面对面说 Auf Wiedersehen!（再看到=再见）。"
+      },
+      {
+        id: "expr-12-e3",
+        type: "multiple-choice",
+        questionZh: "\"Kann ich bitte mit Herrn Schmidt sprechen?\" 的意思是？",
+        options: ["请问施密特先生在吗？", "请问您是施密特先生吗？", "我可以给施密特先生打电话吗？", "施密特先生的电话号码是多少？"],
+        correctAnswer: "请问施密特先生在吗？",
+        explanation: "mit jemandem sprechen = to speak with someone。Kann ich bitte mit Herrn Schmidt sprechen? = Can I speak with Mr. Schmidt please?"
+      }
+    ]
   }
 ];

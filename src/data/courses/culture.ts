@@ -312,5 +312,217 @@ export const cultureLessons: CourseLesson[] = [
         explanation: "德语授课项目通常要求 B2 或 C1 水平（通过 DSH 或 TestDaF 考试）。但德国也有许多英文授课的硕士项目。"
       }
     ]
+  },
+  {
+    id: "cult-06",
+    category: "culture",
+    titleZh: "德国饮食文化",
+    titleDe: "Deutsche Esskultur",
+    titleEn: "German Food Culture",
+    description: "了解德国特色美食、饮食习惯和餐桌礼仪",
+    level: "A1",
+    order: 6,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "text",
+        heading: "德国特色美食",
+        content: "德国不仅有啤酒和香肠！各地都有独特的特色菜：\n\n巴伐利亚：白香肠（Weißwurst）+ 甜芥末 + 啤酒\n巴登-符腾堡：Maultaschen（面食口袋，类似馄饨）\n黑森州：Grüne Soße（绿色酱汁，配煮鸡蛋和土豆）\n汉堡： Labskaus（肉泥配甜菜根和腌鲱鱼）\n全国：Currywurst（咖喱香肠）+ Pommes（薯条）"
+      },
+      {
+        type: "table",
+        heading: "一日三餐",
+        content: "",
+        tableHeaders: ["餐次", "德语", "时间", "内容"],
+        tableRows: [
+          ["早餐", "das Frühstück", "7:00-9:00", "面包、黄油、果酱、奶酪、肉制品、咖啡"],
+          ["午餐", "das Mittagessen", "12:00-13:00", "热餐为主（主餐）"],
+          ["下午茶", "die Kaffeepause", "15:00-16:00", "咖啡 + 蛋糕（Kaffee und Kuchen）"],
+          ["晚餐", "das Abendbrot", "18:00-19:00", "冷餐为主（面包配各种冷盘）"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "餐桌礼仪",
+        content: "进餐前说 \"Guten Appetit!\"（祝好胃口）或 \"Mahlzeit!\"（午餐时间）\n碰杯时看着对方眼睛说 \"Prost!\"（干杯）\n用餐时双手放在桌上（不用餐时手腕搭在桌边）\n吃完后将刀叉并排放在盘子上表示\"我吃完了\""
+      },
+      {
+        type: "tip",
+        heading: "面包文化",
+        content: "德国有超过 3000 种面包！面包店（Bäckerei）是德国人每天必去的地方。最受欢迎的包括：Brötchen（小面包）、Vollkornbrot（全麦面包）、Schwarzbrot（黑面包）、Brezel（碱水结）。面包店周日关门，但周六下午会排长队囤面包。"
+      }
+    ],
+    exercises: [
+      {
+        id: "cult-06-e1",
+        type: "multiple-choice",
+        questionZh: "德国晚餐（das Abendbrot）通常是什么类型的？",
+        options: ["热餐为主", "冷餐为主（面包配冷盘）", "快餐", "汤和沙拉"],
+        correctAnswer: "冷餐为主（面包配冷盘）",
+        explanation: "das Abendbrot（晚餐，字面意思是\"晚上的面包\"）通常以冷餐为主：面包配各种奶酪、肉制品和蔬菜。"
+      },
+      {
+        id: "cult-06-e2",
+        type: "multiple-choice",
+        questionZh: "进餐前德国人通常说什么？",
+        options: ["Prost!", "Guten Appetit!", "Danke!", "Mahlzeit!"],
+        correctAnswer: "Guten Appetit!",
+        explanation: "Guten Appetit! = Enjoy your meal!（祝好胃口）。Prost 是干杯时说的，Mahlzeit 是午间问候。"
+      },
+      {
+        id: "cult-06-e3",
+        type: "multiple-choice",
+        questionZh: "德国大约有多少种面包？",
+        options: ["约100种", "约500种", "超过3000种", "约50种"],
+        correctAnswer: "超过3000种",
+        explanation: "德国有超过 3000 种面包和 1200 种小面包卷，面包文化是联合国教科文组织非物质文化遗产。"
+      }
+    ]
+  },
+  {
+    id: "cult-07",
+    category: "culture",
+    titleZh: "住房与租房",
+    titleDe: "Wohnen in Deutschland",
+    titleEn: "Housing and Renting in Germany",
+    description: "了解德国租房文化、流程和注意事项",
+    level: "A1",
+    order: 7,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "text",
+        heading: "德国人喜欢租房",
+        content: "与许多国家不同，德国有很高的租房比例——超过一半的德国家庭住在租来的房子里。租房不是\"临时方案\"，而是一种长期的生活方式。德国法律对租户保护非常完善。"
+      },
+      {
+        type: "table",
+        heading: "租房类型",
+        content: "",
+        tableHeaders: ["德语", "类型", "说明"],
+        tableRows: [
+          ["die Wohnung", "公寓", "最常见的租房类型"],
+          ["das Einfamilienhaus", "独栋别墅", "带花园，通常郊区"],
+          ["die Dachwohnung", "顶楼公寓", "在顶层，可能有斜屋顶"],
+          ["die Altbauwohnung", "老建筑公寓", "高天花板、木地板，有魅力"],
+          ["das möbliertes Zimmer", "带家具的房间", "通常学生合租"],
+          ["die WG (Wohngemeinschaft)", "合租公寓", "年轻人/学生常见"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "租房流程",
+        content: "在德国租房通常需要：\n1. 在 ImmobilienScout24 或 WG-Gesucht 等网站找房源\n2. 联系房东或中介（der Makler），预约看房（die Besichtigung）\n3. 提供收入证明（Einkommensnachweis）和 SCHUFA 信用记录\n4. 签合同（der Mietvertrag）\n5. 交押金（die Kaution），通常为2-3个月冷租\n6. 入住交接（die Wohnungsübergabe），记录房屋状况"
+      },
+      {
+        type: "text",
+        heading: "暖租 vs 冷租",
+        content: "德国租金分两种：\n\n冷租（die Kaltmiete）：纯房租，不含水电暖\n暖租（die Warmmiete）：冷租 + 附加费用（Nebenkosten，如水、暖、垃圾处理等）\n\n找房子时要注意看是冷租还是暖租！暖租通常比冷租高 150-300€/月。"
+      },
+      {
+        type: "tip",
+        heading: "实用德语",
+        content: "Ich suche eine Wohnung. (我在找公寓。)\nWas kostet die Miete pro Monat? (每月租金多少？)\nIst die Wohnung möbliert? (公寓带家具吗？)\nWann kann ich einziehen? (我什么时候可以搬进来？)\nDer Makler ist teuer. (中介费很贵。)"
+      }
+    ],
+    exercises: [
+      {
+        id: "cult-07-e1",
+        type: "multiple-choice",
+        questionZh: "德国租房比例大约是多少？",
+        options: ["不到20%", "约30%", "超过50%", "不到10%"],
+        correctAnswer: "超过50%",
+        explanation: "超过一半的德国家庭住在租来的房子里。租房在德国是一种长期生活方式，不是临时方案。"
+      },
+      {
+        id: "cult-07-e2",
+        type: "multiple-choice",
+        questionZh: "暖租（die Warmmiete）包含什么？",
+        options: ["只有纯房租", "冷租 + 水电暖等附加费", "冷租 + 家具费", "冷租 + 中介费"],
+        correctAnswer: "冷租 + 水电暖等附加费",
+        explanation: "die Warmmiete = die Kaltmiete + Nebenkosten（附加费，包含水、暖、垃圾处理等）。"
+      },
+      {
+        id: "cult-07-e3",
+        type: "multiple-choice",
+        questionZh: "\"die WG\" 是什么意思？",
+        options: ["独栋别墅", "酒店", "合租公寓", "度假房"],
+        correctAnswer: "合租公寓",
+        explanation: "WG = Wohngemeinschaft（合租公寓），是年轻人和大学生最常见的居住形式。每人有自己的房间，共用厨房和浴室。"
+      }
+    ]
+  },
+  {
+    id: "cult-08",
+    category: "culture",
+    titleZh: "环保与回收",
+    titleDe: "Umwelt und Recycling",
+    titleEn: "Environment and Recycling",
+    description: "了解德国严格的垃圾分类和环保文化",
+    level: "A1",
+    order: 8,
+    estimatedMinutes: 8,
+    sections: [
+      {
+        type: "text",
+        heading: "德国是环保先驱",
+        content: "德国是全球环保和回收利用的领先国家。垃圾分类（Mülltrennung）是每个德国人的日常习惯，不遵守会面临罚款。理解这套系统是在德国生活的基础。"
+      },
+      {
+        type: "table",
+        heading: "垃圾分类系统",
+        content: "",
+        tableHeaders: ["桶色", "德语", "中文", "投放内容"],
+        tableRows: [
+          ["蓝色", "die Papiertonne", "纸类垃圾桶", "纸、纸板、报纸、杂志"],
+          ["黄色", "der Gelbe Sack", "塑料/包装桶", "塑料瓶、包装袋、铝箔、罐头"],
+          ["棕色", "die Biotonne", "有机垃圾桶", "厨余、果皮、茶叶渣、蛋壳"],
+          ["黑色/灰色", "die Restmülltonne", "残余垃圾桶", "无法分类的其他垃圾"],
+          ["—", "der Glascontainer", "玻璃回收箱", "按颜色分：白/绿/棕玻璃"],
+          ["—", "der Sondermüll", "有害垃圾", "电池、灯泡、化学品"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "周日安静时间（Ruhezeit）",
+        content: "德国有严格的安静时间规定：\n\n- 每周日和公共假期全天安静（Sonntagsruhe）\n- 工作日晚上 22:00 — 次日 7:00 为夜间安静时间\n\n安静时间内禁止：大声放音乐、使用割草机、钻孔装修、在公寓楼内大声活动。\n违反规定邻居可以报警！"
+      },
+      {
+        type: "text",
+        heading: "环保购物",
+        content: "- 购物袋自带（购物袋需付费）\n- Pfand 押金制度鼓励回收瓶子\n- 许多超市设有有机食品区（Bio-Abteilung）\n- 周日所有商店关门，减少消费和碳排放\n- 越来越多城市设立环保区（Umweltzone），限制高排放车辆进入"
+      },
+      {
+        type: "tip",
+        heading: "新到德国的提醒",
+        content: "搬到德国的第一件事就是学会垃圾分类！你的房东或物业会提供分类指南。如果不确定某样东西该扔哪里，问邻居或查看当地政府网站。德国人非常在意垃圾分类的正确性。"
+      }
+    ],
+    exercises: [
+      {
+        id: "cult-08-e1",
+        type: "multiple-choice",
+        questionZh: "废旧报纸应该扔进哪个颜色的垃圾桶？",
+        options: ["黄色桶", "蓝色桶", "棕色桶", "黑色桶"],
+        correctAnswer: "蓝色桶",
+        explanation: "蓝色桶（die Papiertonne）专门收集纸类：报纸、杂志、纸板、信件等。"
+      },
+      {
+        id: "cult-08-e2",
+        type: "multiple-choice",
+        questionZh: "德国的周日安静时间（Sonntagsruhe）意味着什么？",
+        options: ["不能出门", "不能大声活动和装修", "必须去教堂", "所有商店开门"],
+        correctAnswer: "不能大声活动和装修",
+        explanation: "周日全天禁止大声活动：不放音乐、不装修、不使用电动工具。违反规定邻居可以报警。"
+      },
+      {
+        id: "cult-08-e3",
+        type: "multiple-choice",
+        questionZh: "果皮和茶叶渣应该扔进？",
+        options: ["黄色桶", "蓝色桶", "棕色桶（有机垃圾）", "黑色桶"],
+        correctAnswer: "棕色桶（有机垃圾）",
+        explanation: "棕色桶（die Biotonne）收集有机/可堆肥垃圾：果皮、蔬菜残余、茶叶渣、蛋壳等。"
+      }
+    ]
   }
 ];

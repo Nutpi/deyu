@@ -776,5 +776,467 @@ export const grammarLessons: CourseLesson[] = [
         explanation: "与情态动词结合时，可分动词不被分离，完整放在句末：Ich muss um 7 Uhr aufstehen. (不是 auf...stehen)"
       }
     ]
+  },
+  {
+    id: "gram-11",
+    category: "grammar",
+    titleZh: "与格（Dativ）",
+    titleDe: "Der Dativ",
+    titleEn: "The Dative Case",
+    description: "学习德语第三格（与格）的用法和冠词变化",
+    level: "A2",
+    order: 11,
+    estimatedMinutes: 10,
+    prerequisiteIds: ["gram-08"],
+    sections: [
+      {
+        type: "text",
+        heading: "什么是与格？",
+        content: "与格（Dativ）用于表示间接宾语——动作的接受者或受益者。简单理解就是\"给谁\"、\"为谁\"。\n\nIch gebe dem Mann das Buch. (我把书给那个男人。)\n\"dem Mann\" 是与格——书的接受者。"
+      },
+      {
+        type: "table",
+        heading: "与格冠词变化",
+        content: "",
+        tableHeaders: ["性", "主格（N）", "宾格（A）", "与格（D）"],
+        tableRows: [
+          ["阳性", "der", "den", "dem"],
+          ["阴性", "die", "die", "der"],
+          ["中性", "das", "das", "dem"],
+          ["复数", "die", "die", "den +名词尾加-n"],
+          ["阳性(不定)", "ein", "einen", "einem"],
+          ["阴性(不定)", "eine", "eine", "einer"],
+          ["中性(不定)", "ein", "ein", "einem"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "关键规则",
+        content: "与格有三个变化要点：\n1. 阳性和中性：dem（der→dem, das→dem, ein→einem）\n2. 阴性：der（die→der, eine→einer）— 注意！der 既可以是阳性主格，也可以是阴性与格！\n3. 复数名词在与格中词尾加 -n：die Kinder → den Kindern"
+      },
+      {
+        type: "table",
+        heading: "常用接与格的动词",
+        content: "",
+        tableHeaders: ["动词", "含义", "例句"],
+        tableRows: [
+          ["geben", "给/give", "Ich gebe dir das Buch."],
+          ["helfen", "帮助/help", "Kannst du mir helfen?"],
+          ["danken", "感谢/thank", "Ich danke dir."],
+          ["gefallen", "使...喜欢/please", "Das Essen gefällt mir."],
+          ["gehören", "属于/belong to", "Das Buch gehört mir."],
+          ["zeigen", "给...看/show", "Zeig mir dein Foto."],
+        ]
+      },
+      {
+        type: "tip",
+        heading: "记忆技巧",
+        content: "与格和宾格的区别：宾格 = 动作直接作用的对象（我吃什么？一本书），与格 = 动作的接受者（我给谁？那个男人）。\n\n三格记忆口诀：主格做主语，宾格被作用，与格是\"给谁\"。"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-11-e1",
+        type: "fill-blank",
+        questionZh: "填入正确的与格冠词：",
+        questionDe: "Ich gebe ___ Mann das Buch. (der)",
+        correctAnswer: "dem",
+        explanation: "阳性 der 在与格中变为 dem。Ich gebe dem Mann das Buch."
+      },
+      {
+        id: "gram-11-e2",
+        type: "multiple-choice",
+        questionZh: "\"Ich helfe dir.\" 中 dir 是什么格？",
+        options: ["主格", "宾格", "与格", "属格"],
+        correctAnswer: "与格",
+        explanation: "helfen（帮助）接与格。dir 是 du 的与格形式。"
+      },
+      {
+        id: "gram-11-e3",
+        type: "multiple-choice",
+        questionZh: "阴性 die Frau 在与格中变为？",
+        options: ["die Frau", "der Frau", "dem Frau", "den Frau"],
+        correctAnswer: "der Frau",
+        explanation: "阴性 die 在与格中变为 der。注意：der 可以是阳性主格或阴性与格，需要根据语境判断。"
+      }
+    ]
+  },
+  {
+    id: "gram-12",
+    category: "grammar",
+    titleZh: "完成时（Perfekt）",
+    titleDe: "Das Perfekt",
+    titleEn: "The Perfect Tense",
+    description: "学习德语最常用的过去时态——完成时的构成",
+    level: "A2",
+    order: 12,
+    estimatedMinutes: 10,
+    prerequisiteIds: ["gram-05", "gram-11"],
+    sections: [
+      {
+        type: "text",
+        heading: "完成时：口语中最常用的过去时",
+        content: "德语表示过去的事有两种主要方式：完成时（Perfekt，用于口语）和过去时（Präteritum，用于书面语）。\n\n完成时是日常对话中表达过去最常用的时态：\n\"Ich habe gestern einen Film gesehen.\" (我昨天看了一部电影。)\n\"Ich bin nach Berlin gefahren.\" (我去了柏林。)"
+      },
+      {
+        type: "text",
+        heading: "完成时的构成",
+        content: "完成时 = haben/sein（变位）+ ... + 过去分词（Partizip II）\n\n过去分词的构成：ge + 动词词干 + t（规则动词）\nmachen → ge + mach + t = gemacht\nlernen → ge + lern + t = gelernt\n\n不规则动词需要逐个记忆：\nsehen → gesehen\nessen → gegessen\ntrinken → getrunken"
+      },
+      {
+        type: "table",
+        heading: "用 haben 还是 sein？",
+        content: "",
+        tableHeaders: ["助动词", "用于", "例子"],
+        tableRows: [
+          ["haben", "大多数动词", "Ich habe gearbeitet. (我工作了。)"],
+          ["sein", "表示移动/方向变化的动词", "Ich bin gegangen. (我走了。)"],
+          ["sein", "表示状态变化的动词", "Er ist aufgewacht. (他醒了。)"],
+        ]
+      },
+      {
+        type: "table",
+        heading: "常用 sein 动词（完成时用 sein）",
+        content: "",
+        tableHeaders: ["动词", "过去分词", "含义"],
+        tableRows: [
+          ["gehen", "ist gegangen", "走/去"],
+          ["kommen", "ist gekommen", "来"],
+          ["fahren", "ist gefahren", "驾驶/乘车"],
+          ["fliegen", "ist geflogen", "飞/乘飞机"],
+          ["sein", "ist gewesen", "是"],
+          ["werden", "ist geworden", "变成"],
+          ["bleiben", "ist geblieben", "停留/保持"],
+          ["aufstehen", "ist aufgestanden", "起床"],
+        ]
+      },
+      {
+        type: "comparison",
+        heading: "德语 vs 英语完成时",
+        content: "英语：I have eaten. (现在完成时)\n德语：Ich habe gegessen.\n\n结构非常相似！但德语完成时在口语中代替了简单过去时，而英语口语中两者都常用。\n\n德语完成时 = 英语现在完成时 + 简单过去时的口语用法"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-12-e1",
+        type: "fill-blank",
+        questionZh: "填入正确的过去分词：",
+        questionDe: "Ich habe gestern Deutsch ___. (lernen)",
+        correctAnswer: "gelernt",
+        explanation: "规则动词 lernen 的过去分词：ge + lern + t = gelernt。Ich habe Deutsch gelernt."
+      },
+      {
+        id: "gram-12-e2",
+        type: "multiple-choice",
+        questionZh: "gehen 的完成时用哪个助动词？",
+        options: ["haben", "sein", "werden", "wollen"],
+        correctAnswer: "sein",
+        explanation: "gehen 表示移动，完成时用 sein：Ich bin gegangen."
+      },
+      {
+        id: "gram-12-e3",
+        type: "multiple-choice",
+        questionZh: "\"Ich habe gestern einen Film ___.\" 空格应填？",
+        questionDe: "Ich habe gestern einen Film ___. (sehen)",
+        options: ["geseht", "gesehen", "gesieht", "geseen"],
+        correctAnswer: "gesehen",
+        explanation: "sehen 是不规则动词，过去分词为 gesehen。Ich habe einen Film gesehen."
+      }
+    ]
+  },
+  {
+    id: "gram-13",
+    category: "grammar",
+    titleZh: "过去时（Präteritum）",
+    titleDe: "Das Präteritum",
+    titleEn: "The Simple Past Tense",
+    description: "学习德语简单过去时的构成，用于书面语和正式表达",
+    level: "A2",
+    order: 13,
+    estimatedMinutes: 10,
+    prerequisiteIds: ["gram-12"],
+    sections: [
+      {
+        type: "text",
+        heading: "过去时：书面语的首选",
+        content: "过去时（Präteritum）主要用于书面语、新闻报道和文学作品。口语中通常用完成时代替。\n\n但在口语中有两个动词几乎总是用过去时：\n- sein（是）：过去时 war\n- haben（有）：过去时 hatte"
+      },
+      {
+        type: "table",
+        heading: "sein 和 haben 的过去时",
+        content: "",
+        tableHeaders: ["人称", "sein 过去时", "haben 过去时"],
+        tableRows: [
+          ["ich", "war", "hatte"],
+          ["du", "warst", "hattest"],
+          ["er/sie/es", "war", "hatte"],
+          ["wir", "waren", "hatten"],
+          ["ihr", "wart", "hattet"],
+          ["sie/Sie", "waren", "hatten"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "规则动词的过去时",
+        content: "规则动词过去时 = 词干 + -te- + 人称词尾\n\nmachen（做）：\nich machte, du machtest, er machte, wir machten, ihr machtet, sie machten\n\nlernen（学习）：\nich lernte, du lerntest, er lernte, wir lernten, ihr lerntet, sie lernten"
+      },
+      {
+        type: "text",
+        heading: "不规则动词的过去时",
+        content: "不规则动词需要逐个记忆，常见的有：\n\ngehen → ging (走)\nkommen → kam (来)\nsehen → sah (看)\ngeben → gab (给)\nnehmen → nahm (拿)\nsprechen → sprach (说)\nfahren → fuhr (驾驶)\nschreiben → schrieb (写)\nlesen → las (读)"
+      },
+      {
+        type: "comparison",
+        heading: "何时用完成时 vs 过去时？",
+        content: "口语：优先用完成时 (Perfekt)\n→ \"Ich habe gestern einen Film gesehen.\"\n\n书面语/新闻：优先用过去时 (Präteritum)\n→ \"Ich sah gestern einen Film.\"\n\n例外：sein 和 haben 在口语中也用过去时\n→ \"Ich war müde.\" (不用 bin gewesen)\n→ \"Ich hatte keine Zeit.\" (不用 habe gehabt)"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-13-e1",
+        type: "multiple-choice",
+        questionZh: "\"sein\" 的 ich 过去时形式是？",
+        options: ["wäre", "war", "wurde", "ward"],
+        correctAnswer: "war",
+        explanation: "sein 的过去时：ich war, du warst, er war, wir waren...。Ich war müde. (I was tired.)"
+      },
+      {
+        id: "gram-13-e2",
+        type: "multiple-choice",
+        questionZh: "在口语中表达过去的事，通常优先用哪个时态？",
+        options: ["过去时 (Präteritum)", "完成时 (Perfekt)", "将来时 (Futur)", "现在时 (Präsens)"],
+        correctAnswer: "完成时 (Perfekt)",
+        explanation: "德语口语中表达过去主要用完成时。过去时主要用于书面语。但 sein 和 haben 在口语中也用过去时。"
+      },
+      {
+        id: "gram-13-e3",
+        type: "fill-blank",
+        questionZh: "填入正确的过去时形式：",
+        questionDe: "Gestern ___ ich im Kino. (sein)",
+        correctAnswer: "war",
+        explanation: "sein 的 ich 过去时形式是 war。Gestern war ich im Kino. (Yesterday I was at the cinema.)"
+      }
+    ]
+  },
+  {
+    id: "gram-14",
+    category: "grammar",
+    titleZh: "形容词词尾变化",
+    titleDe: "Adjektivdeklination",
+    titleEn: "Adjective Endings",
+    description: "学习德语形容词在名词前的词尾变化规则",
+    level: "A2",
+    order: 14,
+    estimatedMinutes: 12,
+    prerequisiteIds: ["gram-08", "gram-11"],
+    sections: [
+      {
+        type: "text",
+        heading: "形容词什么时候要变词尾？",
+        content: "形容词放在名词前面时（定语用法），需要根据冠词、格和名词性别加词尾。\n\nder große Mann (那个高大的男人)\nein großer Mann (一个高大的男人)\nmit dem großen Mann (和那个高大的男人)\n\n而形容词作表语时不变：\nDer Mann ist groß. (这个男人很高。)"
+      },
+      {
+        type: "table",
+        heading: "有定冠词时的词尾（弱变化）",
+        content: "",
+        tableHeaders: ["格\\性", "阳性", "阴性", "中性", "复数"],
+        tableRows: [
+          ["主格", "der groß-e", "die groß-e", "das groß-e", "die groß-en"],
+          ["宾格", "den groß-en", "die groß-e", "das groß-e", "die groß-en"],
+          ["与格", "dem groß-en", "der groß-en", "dem groß-en", "den groß-en"],
+        ]
+      },
+      {
+        type: "table",
+        heading: "无冠词/不定冠词时的词尾（强变化）",
+        content: "",
+        tableHeaders: ["格\\性", "阳性", "阴性", "中性", "复数"],
+        tableRows: [
+          ["主格", "ein groß-er", "eine groß-e", "ein groß-es", "groß-e"],
+          ["宾格", "einen groß-en", "eine groß-e", "ein groß-es", "groß-e"],
+          ["与格", "einem groß-en", "einer groß-en", "einem groß-en", "groß-en"],
+        ]
+      },
+      {
+        type: "tip",
+        heading: "简化记忆法",
+        content: "看起来很复杂，但有一个简单规律：\n\n1. 有定冠词（der/die/das）时，词尾多为 -e 或 -en\n2. 不定冠词（ein）时，形容词承担冠词功能，词尾更丰富\n3. 与格和复数几乎总是 -en\n4. 主格阳性无冠词：-er（如 ein großer Mann）\n5. 主格中性无冠词：-es（如 ein großes Haus）"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-14-e1",
+        type: "multiple-choice",
+        questionZh: "\"der groß___ Mann\"（主格）应填入？",
+        options: ["-er", "-e", "-es", "-en"],
+        correctAnswer: "-e",
+        explanation: "有定冠词 der 时（主格阳性），形容词词尾为 -e：der große Mann。"
+      },
+      {
+        id: "gram-14-e2",
+        type: "multiple-choice",
+        questionZh: "\"ein groß___ Haus\"（主格中性）应填入？",
+        options: ["-er", "-e", "-es", "-en"],
+        correctAnswer: "-es",
+        explanation: "不定冠词 ein（主格中性），形容词词尾为 -es：ein großes Haus。"
+      },
+      {
+        id: "gram-14-e3",
+        type: "multiple-choice",
+        questionZh: "与格（Dativ）中形容词词尾几乎总是？",
+        options: ["-e", "-er", "-es", "-en"],
+        correctAnswer: "-en",
+        explanation: "与格中形容词词尾几乎都是 -en：mit dem großen Mann, mit der großen Frau, mit den großen Kindern。"
+      }
+    ]
+  },
+  {
+    id: "gram-15",
+    category: "grammar",
+    titleZh: "从句与语序",
+    titleDe: "Nebensätze und Wortstellung",
+    titleEn: "Subordinate Clauses and Word Order",
+    description: "学习德语从句的结构和动词放置规则",
+    level: "B1",
+    order: 15,
+    estimatedMinutes: 10,
+    prerequisiteIds: ["gram-06"],
+    sections: [
+      {
+        type: "text",
+        heading: "德语从句的核心规则",
+        content: "在德语从句中，**动词放在句末**！这是与英语最大的区别之一。\n\n英语：I know that he **is** tired.\n德语：Ich weiß, dass er müde **ist**.\n\n从句通常由连词引导：dass（that）、weil（because）、ob（whether/if）、wenn（when/if）等。"
+      },
+      {
+        type: "table",
+        heading: "常用从句连词",
+        content: "",
+        tableHeaders: ["连词", "含义", "例句"],
+        tableRows: [
+          ["dass", "that", "Ich weiß, dass er kommt. (我知道他会来。)"],
+          ["weil", "because", "Ich bleibe zu Hause, weil es regnet. (因为下雨我待在家。)"],
+          ["ob", "whether/if", "Ich weiß nicht, ob er kommt. (我不知道他来不来。)"],
+          ["wenn", "when/if", "Wenn ich Zeit habe, gehe ich ins Kino. (如果有时间我就去电影院。)"],
+          ["obwohl", "although", "Obwohl es regnet, gehe ich spazieren. (虽然下雨，我还是去散步。)"],
+          ["damit", "so that", "Ich lerne Deutsch, damit ich in Deutschland arbeiten kann."],
+        ]
+      },
+      {
+        type: "text",
+        heading: "从句中的动词位置",
+        content: "主句 + 连词 + 主语 + ... + 动词(句末)\n\nIch weiß | dass | er | morgen | kommt.\nI know | that | he | tomorrow | comes.\n\n如果有情态动词，变位的动词仍在句末：\nIch weiß, dass er Deutsch sprechen **kann**."
+      },
+      {
+        type: "text",
+        heading: "从句在主句前面时",
+        content: "当从句放在主句前面时，主句的动词必须在第一位（紧接在从句后）：\n\nWeil es regnet, **bleibe** ich zu Hause.\n(Because it rains, stay I at home.)\n\nDass er kommt, **weiß** ich nicht.\n(That he comes, know I not.)"
+      },
+      {
+        type: "comparison",
+        heading: "德语 vs 英语",
+        content: "英语从句：I think that he **has** arrived. (动词在中间)\n德语从句：Ich denke, dass er angekommen **ist**. (动词在末尾)\n\n这是德语对英语学习者最具挑战性的语序规则之一。需要训练自己把动词\"延迟\"到句末的习惯。"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-15-e1",
+        type: "multiple-choice",
+        questionZh: "德语从句中动词放在什么位置？",
+        options: ["第二位（和主句一样）", "紧接在连词后面", "句末", "第一位"],
+        correctAnswer: "句末",
+        explanation: "德语从句中变位动词放在句末：Ich weiß, dass er müde ist."
+      },
+      {
+        id: "gram-15-e2",
+        type: "multiple-choice",
+        questionZh: "\"Ich bleibe zu Hause, ___ es regnet.\" 应填哪个连词？",
+        options: ["dass", "weil", "ob", "wenn"],
+        correctAnswer: "weil",
+        explanation: "weil = because。Ich bleibe zu Hause, weil es regnet. (I stay at home because it's raining.)"
+      },
+      {
+        id: "gram-15-e3",
+        type: "multiple-choice",
+        questionZh: "当从句放在主句前面时，主句的动词在什么位置？",
+        options: ["第二位", "紧接在从句后面（第一位）", "句末", "不受影响"],
+        correctAnswer: "紧接在从句后面（第一位）",
+        explanation: "从句在前时，主句动词直接跟在后面：Weil es regnet, bleibe ich zu Hause. (bleibe 在第一位)"
+      }
+    ]
+  },
+  {
+    id: "gram-16",
+    category: "grammar",
+    titleZh: "虚拟式（Konjunktiv II）",
+    titleDe: "Der Konjunktiv II",
+    titleEn: "The Subjunctive II",
+    description: "学习德语虚拟式用于表达愿望、假设和礼貌请求",
+    level: "B1",
+    order: 16,
+    estimatedMinutes: 10,
+    prerequisiteIds: ["gram-05"],
+    sections: [
+      {
+        type: "text",
+        heading: "虚拟式有什么用？",
+        content: "虚拟式（Konjunktiv II）在德语中有三大用途：\n1. 表达礼貌请求（最常用）：Ich hätte gern... (我想要...)\n2. 表达假设：Wenn ich reich wäre... (如果我有钱的话...)\n3. 表达愿望：Ich wünschte, ich könnte fliegen. (我希望我会飞。)"
+      },
+      {
+        type: "table",
+        heading: "常用虚拟式形式",
+        content: "",
+        tableHeaders: ["动词", "直陈式(现在时)", "虚拟式", "用途"],
+        tableRows: [
+          ["haben", "ich habe", "ich hätte", "礼貌表达：Ich hätte gern..."],
+          ["sein", "ich bin", "ich wäre", "假设：Wenn ich du wäre..."],
+          ["werden", "ich werde", "ich würde", "通用虚拟形式 + 不定式"],
+          ["können", "ich kann", "ich könnte", "假设能力：Ich könnte helfen."],
+          ["müssen", "ich muss", "ich müsste", "假设必须：Ich müsste gehen."],
+          ["sollen", "ich soll", "ich sollte", "建议：Man sollte mehr trinken."],
+          ["dürfen", "ich darf", "ich dürfte", "假设允许：Dürfte ich fragen?"],
+        ]
+      },
+      {
+        type: "text",
+        heading: "最实用的虚拟式表达",
+        content: "以下是在德国日常生活中最常用的虚拟式表达：\n\nIch hätte gern einen Kaffee. (请给我一杯咖啡。)\nKönnten Sie mir helfen? (您能帮我吗？)\nWürden Sie das bitte wiederholen? (您能再说一遍吗？)\nDürfte ich eine Frage stellen? (我可以提个问题吗？)\nIch möchte gern... (我想要... — möchten 是 mögen 的虚拟式)"
+      },
+      {
+        type: "text",
+        heading: "Wenn 从句（如果...）",
+        content: "虚拟式常用于 wenn（如果）从句表达非现实条件：\n\nWenn ich Zeit hätte, würde ich Deutsch lernen.\n(如果我有时间，我会学德语。)\n\nWenn ich reich wäre, würde ich nach Deutschland reisen.\n(如果我有钱，我会去德国旅行。)"
+      },
+      {
+        type: "tip",
+        heading: "英语对比",
+        content: "英语用 \"would/could/should\" 表达同样的意思：\n\"I would like a coffee\" = Ich würde einen Kaffee mögen (或更常用：Ich hätte gern einen Kaffee)\n\"Could you help me?\" = Könnten Sie mir helfen?\n\n虚拟式的核心就是\"客气化\"——把直截了当的请求变得委婉。"
+      }
+    ],
+    exercises: [
+      {
+        id: "gram-16-e1",
+        type: "multiple-choice",
+        questionZh: "\"Ich hätte gern einen Kaffee.\" 中 hätte 是哪个动词的虚拟式？",
+        options: ["sein", "haben", "werden", "halten"],
+        correctAnswer: "haben",
+        explanation: "hätte 是 haben 的虚拟式形式。Ich hätte gern... = I would like...（礼貌表达）"
+      },
+      {
+        id: "gram-16-e2",
+        type: "multiple-choice",
+        questionZh: "礼貌地问\"您能帮我吗？\"应该用？",
+        options: ["Können Sie mir helfen?", "Könnten Sie mir helfen?", "Können Sie mir geholfen?", "Könnten Sie mir geholfen?"],
+        correctAnswer: "Könnten Sie mir helfen?",
+        explanation: "用虚拟式 könnten（können 的虚拟式）更礼貌。相当于英语 \"Could you help me?\" vs \"Can you help me?\""
+      },
+      {
+        id: "gram-16-e3",
+        type: "multiple-choice",
+        questionZh: "\"Wenn ich reich ___...\" (如果我有钱...) 空格应填？",
+        options: ["bin", "wäre", "war", "werde"],
+        correctAnswer: "wäre",
+        explanation: "表达非现实假设用虚拟式。wäre 是 sein 的虚拟式。Wenn ich reich wäre... = If I were rich..."
+      }
+    ]
   }
 ];
