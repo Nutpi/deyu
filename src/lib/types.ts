@@ -10,9 +10,11 @@ export interface Vocabulary {
   plural?: string;          // 名词的复数形式
   wordType: WordType;
   chinese: string;          // 中文释义
+  english?: string;          // 英文释义
   phonetic?: string;        // 发音 (IPA)
   example?: string;         // 德语例句
   exampleTranslation?: string; // 例句中文翻译
+  exampleTranslationEn?: string; // 例句英文翻译
   level: CEFRLevel;
 }
 

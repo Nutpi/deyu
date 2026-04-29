@@ -151,6 +151,9 @@ function WordRow({ word, status, expanded, onToggle, streak, totalLearned, total
         </div>
         <div className="flex items-center gap-2">
           <span className="text-sm text-gray-500 dark:text-gray-400">{word.chinese}</span>
+          {word.english && (
+            <span className="text-xs text-gray-400 dark:text-gray-500">{word.english}</span>
+          )}
           <span className={`text-xs transform transition-transform ${expanded ? "rotate-180" : ""}`}>▼</span>
         </div>
       </div>
@@ -175,6 +178,9 @@ function WordRow({ word, status, expanded, onToggle, streak, totalLearned, total
               </div>
               {word.exampleTranslation && (
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{word.exampleTranslation}</p>
+              )}
+              {word.exampleTranslationEn && (
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{word.exampleTranslationEn}</p>
               )}
             </div>
           )}
