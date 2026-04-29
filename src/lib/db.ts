@@ -1,14 +1,15 @@
-import { CardState, DailyRecord, UserSettings, SessionStats } from "./types";
+import { CardState, DailyRecord, UserSettings, SessionStats, LessonProgress } from "./types";
 import { createNewCardState } from "./sm2";
 
 const DB_NAME = "deyu-db";
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
 const STORES = {
   cardStates: "cardStates",
   dailyRecords: "dailyRecords",
   settings: "settings",
   sessionStats: "sessionStats",
+  lessonProgress: "lessonProgress",
 } as const;
 
 let dbInstance: IDBDatabase | null = null;
@@ -33,6 +34,9 @@ function openDB(): Promise<IDBDatabase> {
       }
       if (!db.objectStoreNames.contains(STORES.sessionStats)) {
         db.createObjectStore(STORES.sessionStats, { keyPath: "date" });
+      }
+      if (!db.objectStoreNames.contains(STORES.lessonProgress)) {
+        db.createObjectStore(STORES.lessonProgress, { keyPath: "lessonId" });
       }
     };
 
@@ -221,5 +225,34 @@ export async function updateSessionStats(
       putReq.onerror = () => reject(putReq.error);
     };
     getReq.onerror = () => reject(getReq.error);
+  });
+}
+
+// --- Lesson Progress ---
+
+export async function getLessonProgress(lessonId: string): Promise<LessonProgress | undefined> {
+  const store = await getStore(STORES.lessonProgress, "readonly");
+  return new Promise((resolve, reject) => {
+    const req = store.get(lessonId);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+export async function getAllLessonProgress(): Promise<LessonProgress[]> {
+  const store = await getStore(STORES.lessonProgress, "readonly");
+  return new Promise((resolve, reject) => {
+    const req = store.getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+export async function saveLessonProgress(progress: LessonProgress): Promise<void> {
+  const store = await getStore(STORES.lessonProgress, "readwrite");
+  return new Promise((resolve, reject) => {
+    const req = store.put(progress);
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
   });
 }

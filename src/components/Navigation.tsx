@@ -7,6 +7,7 @@ const navItems = [
   { href: "/", label: "首页", icon: "🏠" },
   { href: "/learn", label: "学习", icon: "📖" },
   { href: "/review", label: "复习", icon: "🔄" },
+  { href: "/courses", label: "课程", icon: "🎓" },
   { href: "/words", label: "词库", icon: "📚" },
 ];
 
@@ -17,7 +18,7 @@ export default function Navigation() {
     <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 dark:bg-gray-900 dark:border-gray-800 z-50">
       <div className="max-w-lg mx-auto flex justify-around items-center h-16">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
           return (
             <Link
               key={item.href}

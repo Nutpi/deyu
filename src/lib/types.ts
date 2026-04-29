@@ -45,6 +45,50 @@ export interface UserSettings {
   dailyGoal: number;      // 每日目标 (总学习数)
 }
 
+// 课程类型
+export type CourseCategory = "pronunciation" | "grammar" | "expressions" | "culture";
+export type ExerciseType = "multiple-choice" | "fill-blank" | "article-drill" | "flashcard";
+
+export interface CourseLesson {
+  id: string;
+  category: CourseCategory;
+  titleZh: string;
+  titleDe: string;
+  titleEn: string;
+  description: string;
+  level: CEFRLevel;
+  order: number;
+  estimatedMinutes: number;
+  prerequisiteIds?: string[];
+  sections: LessonSection[];
+  exercises: LessonExercise[];
+}
+
+export interface LessonSection {
+  type: "text" | "table" | "example" | "tip" | "comparison";
+  heading?: string;
+  content: string;
+  tableHeaders?: string[];
+  tableRows?: string[][];
+}
+
+export interface LessonExercise {
+  id: string;
+  type: ExerciseType;
+  questionZh: string;
+  questionDe?: string;
+  options?: string[];
+  correctAnswer: string;
+  explanation?: string;
+}
+
+export interface LessonProgress {
+  lessonId: string;
+  completed: boolean;
+  completedAt?: number;
+  bestScore?: number;
+}
+
 // 学习会话统计
 export interface SessionStats {
   date: string;

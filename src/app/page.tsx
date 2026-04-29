@@ -115,6 +115,17 @@ export default function HomePage() {
           </div>
           <span className="text-2xl">📚</span>
         </Link>
+
+        <Link
+          href="/courses"
+          className="flex items-center justify-between w-full p-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition-colors"
+        >
+          <div>
+            <p className="font-semibold">德语课程</p>
+            <p className="text-sm text-emerald-100">系统学习发音、语法和文化</p>
+          </div>
+          <span className="text-2xl">🎓</span>
+        </Link>
       </div>
 
       {/* 统计概览 */}
