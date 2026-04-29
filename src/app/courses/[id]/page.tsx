@@ -62,8 +62,45 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
     setProgress(newProgress);
   };
 
+  const categoryLabels: Record<string, string> = {
+    pronunciation: "发音基础",
+    grammar: "语法体系",
+    expressions: "实用表达",
+    culture: "文化知识",
+  };
+
   return (
     <div className="space-y-4 pb-20">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            name: lesson.titleZh,
+            description: lesson.description,
+            inLanguage: ["de", "zh-CN"],
+            educationalLevel: lesson.level,
+            learningResourceType: "Lesson",
+            teaches: {
+              "@type": "Thing",
+              name: `${categoryLabels[lesson.category] || lesson.category} - ${lesson.titleZh}`,
+            },
+            timeRequired: `PT${lesson.estimatedMinutes}M`,
+            url: `https://deyu.vercel.app/courses/${lesson.id}`,
+            isPartOf: {
+              "@type": "Course",
+              name: "德语学习课程",
+              provider: {
+                "@type": "Organization",
+                name: "Deutsch Lernen",
+              },
+            },
+          }),
+        }}
+      />
+
       {/* Header */}
       <div className="flex items-center gap-3">
         <Link href="/courses" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">

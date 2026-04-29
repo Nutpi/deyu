@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | 德语学习",
   },
   description:
-    "免费德语学习工具，支持 CEFR A1-C2 级别词汇，采用间隔重复记忆法（SM2），包含 900+ 德语词汇、发音、例句，适合德语初学者和备考歌德考试。",
+    "免费德语学习工具，支持 CEFR A1-C2 级别词汇，采用间隔重复记忆法（SM2），包含 1817 个德语词汇、41节课程、发音、例句，适合德语初学者和备考歌德考试。",
   keywords: [
     "德语学习",
     "德语词汇",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "德语学习 - Deutsch Lernen",
     title: "德语学习 - Deutsch Lernen | 免费德语词汇记忆工具",
     description:
-      "采用间隔重复记忆法，高效记忆 900+ 德语词汇。支持发音、例句、打卡分享。",
+      "采用间隔重复记忆法，高效记忆 1817 个德语词汇，41节系统课程。支持发音、例句、打卡分享。",
   },
   twitter: {
     card: "summary",
@@ -87,7 +87,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebApplication",
               name: "德语学习 - Deutsch Lernen",
-              description: "免费德语词汇学习工具，采用间隔重复记忆法（SM2），包含 900+ 德语词汇、发音、例句。",
+              description: "免费德语词汇学习工具，采用间隔重复记忆法（SM2），包含 1817 个德语词汇、41节系统课程、发音、例句。",
               applicationCategory: "EducationalApplication",
               operatingSystem: "Web",
               offers: {

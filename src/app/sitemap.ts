@@ -1,14 +1,21 @@
 import { MetadataRoute } from "next";
+import { allLessons } from "@/data/courses";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://deyu.vercel.app";
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
+    },
+    {
+      url: `${baseUrl}/courses`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/learn`,
@@ -35,4 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ];
+
+  const lessonPages: MetadataRoute.Sitemap = allLessons.map((lesson) => ({
+    url: `${baseUrl}/courses/${lesson.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...lessonPages];
 }
