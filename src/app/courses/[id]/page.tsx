@@ -4,20 +4,30 @@ import { useState, useEffect, use } from "react";
 import Link from "next/link";
 import { LessonProgress } from "@/lib/types";
 import { getLessonById, allLessons } from "@/data/courses";
+import { getQuickLessonById } from "@/data/quickcards";
 import { getLessonProgress, saveLessonProgress } from "@/lib/db";
 import { getNextLesson } from "@/lib/courseProgress";
 import LessonContent from "@/components/LessonContent";
 import ExerciseEngine from "@/components/ExerciseEngine";
 import LessonComplete from "@/components/LessonComplete";
+import QuickCardViewer from "@/components/QuickCardViewer";
 
 export default function LessonDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const [mode, setMode] = useState<"tutorial" | "exercise" | "complete">("tutorial");
+  const [mode, setMode] = useState<"quickcards" | "tutorial" | "exercise" | "complete">("quickcards");
   const [score, setScore] = useState(0);
   const [progress, setProgress] = useState<LessonProgress | undefined>();
 
   const lesson = getLessonById(id);
+  const quickLesson = lesson ? getQuickLessonById(lesson.id) : undefined;
   const nextLesson = lesson ? getNextLesson(lesson.id, allLessons) : undefined;
+
+  // If no quick lesson data, fall back to tutorial mode
+  useEffect(() => {
+    if (lesson && !getQuickLessonById(lesson.id)) {
+      setMode("tutorial");
+    }
+  }, [lesson]);
 
   useEffect(() => {
     if (id) getLessonProgress(id).then(setProgress);
@@ -67,27 +77,50 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
         </div>
       </div>
 
+      {/* Meta info (shared across modes) */}
+      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+        <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700">{lesson.level}</span>
+        <span>{lesson.estimatedMinutes}分钟</span>
+        {progress?.completed && <span className="text-green-600 dark:text-green-400">✓ 已完成</span>}
+      </div>
+
+      {/* Quick cards mode (default) */}
+      {mode === "quickcards" && quickLesson && (
+        <>
+          <QuickCardViewer
+            quickLesson={quickLesson}
+            lesson={lesson}
+            onStartExercise={() => setMode("exercise")}
+            onViewTutorial={() => setMode("tutorial")}
+          />
+        </>
+      )}
+
       {/* Tutorial mode */}
       {mode === "tutorial" && (
         <>
-          <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700">{lesson.level}</span>
-            <span>{lesson.estimatedMinutes}分钟</span>
-            {progress?.completed && <span className="text-green-600 dark:text-green-400">✓ 已完成</span>}
-          </div>
-
           <p className="text-sm text-gray-600 dark:text-gray-400">{lesson.description}</p>
 
           <LessonContent sections={lesson.sections} />
 
-          {lesson.exercises.length > 0 && (
-            <button
-              onClick={() => setMode("exercise")}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors"
-            >
-              开始练习 ({lesson.exercises.length}题)
-            </button>
-          )}
+          <div className="flex flex-col gap-2">
+            {lesson.exercises.length > 0 && (
+              <button
+                onClick={() => setMode("exercise")}
+                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors"
+              >
+                开始练习 ({lesson.exercises.length}题)
+              </button>
+            )}
+            {quickLesson && (
+              <button
+                onClick={() => setMode("quickcards")}
+                className="w-full py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              >
+                ← 返回速览卡片
+              </button>
+            )}
+          </div>
         </>
       )}
 

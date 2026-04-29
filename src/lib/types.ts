@@ -89,6 +89,25 @@ export interface LessonProgress {
   bestScore?: number;
 }
 
+// 简易课程卡片
+export interface QuickCardExample {
+  german: string;
+  chinese: string;
+}
+
+export interface QuickCard {
+  id: string;                // e.g. "gram-01-qc1"
+  heading: string;           // 短标题
+  corePoint: string;         // 一句话核心知识点
+  examples: QuickCardExample[];
+  tip?: string;
+}
+
+export interface QuickLesson {
+  lessonId: string;          // 关联 CourseLesson.id
+  cards: QuickCard[];
+}
+
 // 学习会话统计
 export interface SessionStats {
   date: string;
