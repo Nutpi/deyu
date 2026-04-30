@@ -6,7 +6,7 @@ import { LessonProgress } from "@/lib/types";
 import { getLessonById, allLessons } from "@/data/courses";
 import { getQuickLessonById } from "@/data/quickcards";
 import { getLessonProgress, saveLessonProgress } from "@/lib/db";
-import { getNextLesson } from "@/lib/courseProgress";
+import { getNextLesson, getCategoryMeta } from "@/lib/courseProgress";
 import LessonContent from "@/components/LessonContent";
 import ExerciseEngine from "@/components/ExerciseEngine";
 import LessonComplete from "@/components/LessonComplete";
@@ -62,12 +62,7 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
     setProgress(newProgress);
   };
 
-  const categoryLabels: Record<string, string> = {
-    pronunciation: "发音基础",
-    grammar: "语法体系",
-    expressions: "实用表达",
-    culture: "文化知识",
-  };
+  const meta = getCategoryMeta(lesson.category);
 
   return (
     <div className="space-y-4 pb-20">
@@ -85,7 +80,7 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
             learningResourceType: "Lesson",
             teaches: {
               "@type": "Thing",
-              name: `${categoryLabels[lesson.category] || lesson.category} - ${lesson.titleZh}`,
+              name: `${meta.label} - ${lesson.titleZh}`,
             },
             timeRequired: `PT${lesson.estimatedMinutes}M`,
             url: `https://deyu.vercel.app/courses/${lesson.id}`,
@@ -101,36 +96,36 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
         }}
       />
 
-      {/* Header */}
-      <div className="flex items-center gap-3">
-        <Link href="/courses" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
-          </svg>
-        </Link>
-        <div className="flex-1 min-w-0">
-          <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 truncate">{lesson.titleZh}</h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.titleDe} · {lesson.titleEn}</p>
+      {/* Header with gradient background */}
+      <div className={`${meta.gradientLight} rounded-2xl p-4 shadow-sm border ${meta.borderLight}`}>
+        <div className="flex items-center gap-3">
+          <Link href="/courses" className="bg-white/60 dark:bg-gray-700/60 rounded-full p-1.5 hover:bg-white dark:hover:bg-gray-700 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+            </svg>
+          </Link>
+          <div className="flex-1 min-w-0">
+            <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 truncate">{lesson.titleZh}</h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.titleDe} · {lesson.titleEn}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Meta info (shared across modes) */}
-      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-        <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700">{lesson.level}</span>
-        <span>{lesson.estimatedMinutes}分钟</span>
-        {progress?.completed && <span className="text-green-600 dark:text-green-400">✓ 已完成</span>}
+        {/* Meta info */}
+        <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mt-3">
+          <span className={`px-2 py-0.5 rounded-full ${meta.gradientLight} ${meta.color} font-medium`}>{lesson.level}</span>
+          <span>{lesson.estimatedMinutes}分钟</span>
+          {progress?.completed && <span className="text-green-600 dark:text-green-400 font-medium">✓ 已完成</span>}
+        </div>
       </div>
 
       {/* Quick cards mode (default) */}
       {mode === "quickcards" && quickLesson && (
-        <>
-          <QuickCardViewer
-            quickLesson={quickLesson}
-            lesson={lesson}
-            onStartExercise={() => setMode("exercise")}
-            onViewTutorial={() => setMode("tutorial")}
-          />
-        </>
+        <QuickCardViewer
+          quickLesson={quickLesson}
+          lesson={lesson}
+          onStartExercise={() => setMode("exercise")}
+          onViewTutorial={() => setMode("tutorial")}
+        />
       )}
 
       {/* Tutorial mode */}
@@ -138,13 +133,13 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
         <>
           <p className="text-sm text-gray-600 dark:text-gray-400">{lesson.description}</p>
 
-          <LessonContent sections={lesson.sections} />
+          <LessonContent sections={lesson.sections} category={lesson.category} />
 
           <div className="flex flex-col gap-2">
             {lesson.exercises.length > 0 && (
               <button
                 onClick={() => setMode("exercise")}
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors"
+                className={`w-full py-3 ${meta.gradient} hover:opacity-90 text-white rounded-xl font-medium shadow-md transition-all`}
               >
                 开始练习 ({lesson.exercises.length}题)
               </button>
@@ -152,7 +147,7 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
             {quickLesson && (
               <button
                 onClick={() => setMode("quickcards")}
-                className="w-full py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                className={`w-full py-2 text-sm ${meta.color} hover:underline transition-colors`}
               >
                 ← 返回速览卡片
               </button>
@@ -166,6 +161,7 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
         <ExerciseEngine
           exercises={lesson.exercises}
           onComplete={handleExerciseComplete}
+          category={lesson.category}
         />
       )}
 
@@ -176,6 +172,7 @@ export default function LessonDetailPage({ params }: { params: Promise<{ id: str
           total={lesson.exercises.length}
           lessonId={lesson.id}
           nextLessonId={nextLesson?.id}
+          category={lesson.category}
         />
       )}
     </div>

@@ -12,8 +12,15 @@ interface CourseCategoryCardProps {
 export default function CourseCategoryCard({ category, total, completed }: CourseCategoryCardProps) {
   const meta = getCategoryMeta(category);
 
+  const progressBars: Record<CourseCategory, string> = {
+    pronunciation: "bg-gradient-to-r from-purple-500 to-indigo-500",
+    grammar: "bg-gradient-to-r from-blue-500 to-cyan-500",
+    expressions: "bg-gradient-to-r from-emerald-500 to-teal-500",
+    culture: "bg-gradient-to-r from-amber-500 to-orange-500",
+  };
+
   return (
-    <div className={`${meta.bgColor} rounded-2xl p-4 border border-gray-100 dark:border-gray-700`}>
+    <div className={`${meta.gradientLight} rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 ${meta.borderAccent}`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-2xl">{meta.icon}</span>
@@ -28,13 +35,9 @@ export default function CourseCategoryCard({ category, total, completed }: Cours
         </div>
       </div>
       {total > 0 && (
-        <div className="mt-3 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="mt-3 h-2 bg-gray-200/60 dark:bg-gray-700/60 rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full transition-all duration-500 ${
-              category === "pronunciation" ? "bg-blue-500" :
-              category === "grammar" ? "bg-purple-500" :
-              category === "expressions" ? "bg-emerald-500" : "bg-amber-500"
-            }`}
+            className={`h-full rounded-full transition-all duration-500 ${progressBars[category]}`}
             style={{ width: `${(completed / total) * 100}%` }}
           />
         </div>
